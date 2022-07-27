@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// connnect database and define schema of postgres database
+generator client {
+  provider = "prisma-client-js"
+  
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+
+}
+model Project {
+  id Int @id @default(autoincrement())
+  projectName String 
+  details String
+  dueDate String
+  category String
+  createdBy String
+  users User[]
+  comments Comment[]
+}
+
+model Comment {
+  id Int @id @default(autoincrement())
+  comment String
+
+  createdAt DateTime @default(now())
+  projectID Int 
+  project Project @relation(fields: [projectID],references: [id],onDelete: Cascade)
+  userID Int 
+  user User @relation(fields: [userID],references: [id])
+}
+model User{
+   id Int @id @default(autoincrement())
+   email String @unique
+   name String
+   password String
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
+   isOnline Boolean @default(true)
+
+   projects Project[] 
+   comments Comment[]
+
+  
+}
+
+
+
+
+
+
