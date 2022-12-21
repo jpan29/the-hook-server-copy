@@ -46,11 +46,8 @@ const startServer = async () => {
   app.use(express.json())
   server.applyMiddleware({ app })
 
-  app.listen({ port: 4000 }, ({ url }) => {
-    console.log(
-      `🚀  Server is ready at ${url}
-      📭  Query at https://studio.apollographql.com/dev`
-    )
+  app.listen({ port: 4000 }, () => {
+    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
   })
 }
 
