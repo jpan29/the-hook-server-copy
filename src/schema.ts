@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server'
+import { gql } from 'apollo-server-express'
 export const typeDefs = gql`
   type Query {
     projects(category: String!): [Project!]!
@@ -69,6 +69,9 @@ export const typeDefs = gql`
   }
   type Error {
     message: String!
+  }
+  type FilePayload {
+    url: String
   }
 
   input UserId {
