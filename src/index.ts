@@ -46,7 +46,7 @@ const startServer = async () => {
   app.use(express.json())
   server.applyMiddleware({ app })
 
-  app.listen({ port: process.env.PORT || 4000 }, ({ url }) => {
+  app.listen({ port: 4000 }, ({ url }) => {
     console.log(
       `🚀  Server is ready at ${url}
       📭  Query at https://studio.apollographql.com/dev`
