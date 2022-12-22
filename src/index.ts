@@ -42,12 +42,12 @@ const startServer = async () => {
   })
   await server.start()
   const app = express()
-  app.use(express.static('public'))
+
   app.use(express.json())
   server.applyMiddleware({ app })
 
-  app.listen({ port: 4000 }, () => {
-    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  app.listen(process.env.PORT || 4000, () => {
+    console.log(`🚀 Server is runing`)
   })
 }
 
