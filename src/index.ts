@@ -47,7 +47,7 @@ const startServer = async () => {
   server.applyMiddleware({ app })
 
   app.listen(process.env.PORT || 4000, () => {
-    console.log(`🚀 Server is runing`)
+    console.log(`🚀 Server is running`)
   })
 }
 
