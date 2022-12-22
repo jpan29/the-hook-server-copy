@@ -6,7 +6,6 @@ import { Mutation } from './resolvers/Mutation/Mutation'
 import { Comment } from './resolvers/Comment'
 import { User } from './resolvers/User'
 import { Project } from './resolvers/Project'
-import express from 'express'
 
 import { getUserFromToken } from './utils/getUserFromToken'
 
